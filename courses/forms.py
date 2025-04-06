@@ -50,3 +50,17 @@ class CoursesForm(forms.ModelForm):
             'tests': 'Количество тестов:',
             'tasks': 'Интерактивных задач',
         }
+
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'author': forms.Select(attrs={'class': 'form-control'}),
+            'images': forms.FileInput(attrs={'class': 'form-control'}),
+            'cat': forms.Select(attrs={'class': 'form-select form-select-sm'}),
+            'program': forms.Textarea(attrs={'class': 'form-control'}),
+            'about': forms.Textarea(attrs={'class': 'form-control'}),
+            'initial_requirements': forms.Textarea(attrs={'class': 'form-control'}),
+            'courses_for': forms.TextInput(attrs={'class': 'form-control'}),
+            'lessons': forms.NumberInput(attrs={'class': 'form-control'}),
+            'tests': forms.NumberInput(attrs={'class': 'form-control'}),
+            'tasks': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
