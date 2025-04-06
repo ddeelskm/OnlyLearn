@@ -12,6 +12,9 @@ class Category(models.Model):
             self.slug = slugify(self.name, max_length=100)
         super().save(*args, **kwargs)
 
+    def __str__(self):
+        return f'{self.name}'
+
 
 class Authors(models.Model):
     name = models.CharField(max_length=30, blank=False, verbose_name='Имя')
@@ -24,6 +27,9 @@ class Authors(models.Model):
         if not self.slug:
             self.slug = slugify(f'{self.name} {self.surname}', max_length=100)
         super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f'{self.name} {self.surname}'
 
 
 class Courses(models.Model):
