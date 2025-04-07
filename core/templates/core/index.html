@@ -37,11 +37,11 @@
 					<div class="product-card">
 						<div class="product-thumb">
 
-                          <a href="{{ item.slug.url }}"><img src="{{ item.images.url }}" alt=""></a>
+                          <a href="{% url 'courses_detail' item.slug %}"><img src="{{ item.images.url }}" alt=""></a>
 
 						</div>
 						<div class="product-details">
-                          <h4><a href="{{ item.slug.url }}">{{ item.title }}</a></h4>
+                          <h4><a href="{% url 'courses_detail' item.slug %}">{{ item.title }}</a></h4>
                           <p>{{ item.about }}</p>
                           <div class="product-bottom-details d-flex justify-content-between">
                             <div class="product-links">
@@ -67,7 +67,7 @@
 					<div class="product-card">
 						<div class="product-thumb">
 
-                          <a href="{{ item.slug.url }}"><img src="{{ item.photo.url }}" alt=""></a>
+                          <a href="{{ item.slug }}"><img src="{{ item.photo.url }}" alt=""></a>
 
 						</div>
 						<div class="product-details">
