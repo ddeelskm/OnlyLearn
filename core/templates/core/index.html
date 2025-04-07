@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div class="container-xl pb-5 mb-5">
   <div class="container-lg my-carousel div-fixed-size">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
                 <div class="carousel-indicators">
@@ -28,8 +28,68 @@
         </div>
 
 
+
+
+<div class="row">
+      <h5 class="text-center">Список последних курсов:</h5>
+    {% for item in courses %}
+				<div class="col-md-3 col-sm-6 mb-3">
+					<div class="product-card">
+						<div class="product-thumb">
+
+                          <a href="{{ item.slug.url }}"><img src="{{ item.images.url }}" alt=""></a>
+
+						</div>
+						<div class="product-details">
+                          <h4><a href="{{ item.slug.url }}">{{ item.title }}</a></h4>
+                          <p>{{ item.about }}</p>
+                          <div class="product-bottom-details d-flex justify-content-between">
+                            <div class="product-links">
+                              <a href="#"><i class="far fa-heart"></i></a>
+                            </div>
+                          </div>
+                        </div>
+					</div>
+
+				</div>
+     {% endfor %}
+
+
+</div>
+
+
+
+
+<div class="row">
+      <h5>Авторы:</h5>
+    {% for item in authors %}
+				<div class="col-md-3 col-sm-6 mb-3">
+					<div class="product-card">
+						<div class="product-thumb">
+
+                          <a href="{{ item.slug.url }}"><img src="{{ item.photo.url }}" alt=""></a>
+
+						</div>
+						<div class="product-details">
+                          <h4><a href="{{ item.slug.url }}">{{ item }}</a></h4>
+                          <p>{{ item.description }}</p>
+                          <div class="product-bottom-details d-flex justify-content-between">
+
+                          </div>
+                        </div>
+					</div>
+
+				</div>
+     {% endfor %}
+
+
+</div>
+
+
+
+
      <div class="row">
-     <h2>Последние отзывы:</h2>
+     <h5>Последние отзывы:</h5>
      {% for item in reviews %}
 				<div class="col mb-3">
 					<div class="product-card">
@@ -50,4 +110,10 @@
 
 
 
+
+
+
+
+
+</div>
 {% endblock %}
