@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1 class="mb-4 text-center">{{ title_page }}</h1>
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-2 mb-2">
+      <h5>Категории</h5>
+      <div class="list-group">
+          {% for item in category %}
+        <a href="{{ item.slug }}" class="list-group-item list-group-item-action">{{ item.name }}</a>
+          {% endfor %}
+      </div>
+    </div>
+
+
+    <div class="col-md-8 mb-3">
+      <h5 class="text-center">Список курсов</h5>
+      <div class="row">
+
+          {% for card in courses %}
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="product-card">
+            <div class="product-thumb">
+              <a href="{{ card.slug.url }}"><img src="{{ card.images.url }}" alt="{{ card.title }}" class="img-fluid"></a>
+            </div>
+            <div class="product-details">
+              <h4><a href="{{ card.slug.url }}">{{ card.title }}</a></h4>
+              <p>{{ card.about }}</p>
+              <div class="product-bottom-details d-flex justify-content-between">
+                <div class="product-links">
+                  <a href="#"><i class="far fa-heart"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+
+      </div>
+    </div>
+
+
+
+    <!-- Авторы -->
+    <div class="col-md-2 mb-3">
+      <h5>Список авторов</h5>
+      <div class="row">
+        <div class="col-12">
+          {% for author in authors %}
+          <div class="product-card mb-3">
+            <div class="product-thumb">
+              <a href="#"><img src="{{ author.photo.url }}" alt="" class="img-fluid"></a>
+            </div>
+            <div class="product-details">
+              <h4><a href="{{ author.slug.url }}">{{ author }}</a></h4>
+              <p>{{ author.description }}</p>
+              <div class="product-bottom-details d-flex justify-content-between">
+                <div class="product-links">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
