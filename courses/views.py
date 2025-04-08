@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import FormView, CreateView, TemplateView
+from django.views.generic import FormView, CreateView, TemplateView, DetailView
 
 from core.utils import DataMixins
 from courses.forms import CoursesForm, AuthorsForm, CategoryForm
@@ -42,3 +42,21 @@ class CoursesView(DataMixins, TemplateView):
         context['courses'] = Courses.objects.all()
         context['category'] = Category.objects.all()
         return context
+
+
+class CoursesDetail(DataMixins, DetailView):
+    model = Courses
+    template_name = 'courses/coursesdetail.html'
+    slug_url_kwarg = 'detail_slug'
+    slug_field = 'slug'
+    context_object_name = 'courses_detail'
+
+
+class AuthorDetail(DataMixins, DetailView):
+    model = Authors
+    template_name = 'courses/author.html'
+    slug_url_kwarg = 'author_slug'
+    slug_field = 'slug'
+    context_object_name = 'author_detail'
+
+
