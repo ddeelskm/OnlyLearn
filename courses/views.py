@@ -38,9 +38,14 @@ class CoursesView(DataMixins, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        cat_slug = self.request.GET.get('cat_slug')
         context['authors'] = Authors.objects.all()
-        context['courses'] = Courses.objects.all()
         context['category'] = Category.objects.all()
+
+        if cat_slug:
+            context['courses'] = Courses.objects.filter(cat__slug=cat_slug)
+        else:
+            context['courses'] = Courses.objects.all()
         return context
 
 
