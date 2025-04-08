@@ -67,11 +67,11 @@
 					<div class="product-card">
 						<div class="product-thumb">
 
-                          <a href="{{ item.slug }}"><img src="{{ item.photo.url }}" alt=""></a>
+                          <a href="{% url 'author_detail' item.slug %}"><img src="{{ item.photo.url }}" alt=""></a>
 
 						</div>
 						<div class="product-details">
-                          <h4><a href="{{ item.slug.url }}">{{ item }}</a></h4>
+                          <h4><a href="{% url 'author_detail' item.slug %}">{{ item }}</a></h4>
                           <p>{{ item.description }}</p>
                           <div class="product-bottom-details d-flex justify-content-between">
 
