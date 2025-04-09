@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import FormView, CreateView, TemplateView, DetailView
+from django.views.generic import CreateView, TemplateView, DetailView
 
 from core.utils import DataMixins
 from courses.forms import CoursesForm, AuthorsForm, CategoryForm
@@ -63,5 +63,3 @@ class AuthorDetail(DataMixins, DetailView):
     slug_url_kwarg = 'author_slug'
     slug_field = 'slug'
     context_object_name = 'author_detail'
-
-
