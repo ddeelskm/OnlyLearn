@@ -5,6 +5,8 @@
 2. Перейти в папку репозитория при помощи cd
 3. pip install -r requirements.txt
 4. python manage.py runserver --insecure
+5. python manage.py makemigrations
+6. python manage.py migrate
 
 ## Версии ПО
 Django 5.2, рекомендуется использовать python 3.10 и выше. В данном случае использовался 3.10.
