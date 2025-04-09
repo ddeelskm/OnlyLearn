@@ -25,7 +25,7 @@ class Authors(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(f'{self.name} {self.surname}', max_length=100)
+            self.slug = slugify(f'{self.name} {self.surname}-{self.id}', max_length=100)
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -52,5 +52,5 @@ class Courses(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title, max_length=255)
+            self.slug = slugify(f'{self.title}-{self.id}', max_length=255)
         super().save(*args, **kwargs)
