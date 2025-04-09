@@ -10,11 +10,14 @@ class BannerText(models.Model):
     published = models.BooleanField(default=True, verbose_name='Опубликовать')
     time_created = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
 
+    class Meta:
+        ordering = ['-time_created']
+
 
 class CustomerReviews(models.Model):
     name = models.CharField(max_length=255, blank=False, default='Аноним', verbose_name='Автор')
     reviews = models.TextField(blank=False, verbose_name='Отзыв', validators=[MinLengthValidator(15, 'Минимум 15 символов')])
-    image = models.ImageField(upload_to='photo_reviews/', blank=True, null=True)
+    image = models.ImageField(upload_to='photo_reviews/%Y/%m/%d/', blank=True, default='photo_reviews/default.png')
     published = models.BooleanField(default=True, verbose_name='Опубликовать')
     time_created = models.DateTimeField(auto_now_add=True, verbose_name='Время написания')
 
