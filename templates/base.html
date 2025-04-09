@@ -13,7 +13,7 @@
     <link type="image/png" sizes="32x32" rel="icon" href="{% static 'core/images/ico.png' %}">
 </head>
   <body>
-  
+
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="OnlyLera" href="{% url 'home' %}">OnlyLearn</a>
@@ -23,11 +23,11 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 {% for item in menu %}
-                {% if item.url_page != 'login' and item.url_page != 'registration' %}              
+                {% if item.url_page != 'login' and item.url_page != 'registration' %}
                 <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{ item.url_page }}">{{ item.title }}</a>
               </li>
-                {% endif %}    
+                {% endif %}
                 {% endfor %}
             </ul>
               {% if not user.is_authenticated %}
@@ -49,16 +49,20 @@
                     </li>
                 </ul>
             {% endif %}
-            
+
           </div>
         </div>
     </nav>
+
+
   
-  
-  
-  
+
     {% block content %} {% endblock %}
-  
+
+
+    <footer class="fixed-bottom bg-dark text-white text-center py-3">
+            <p>© 2025 OnlyLearn. Все права защищены.</p>
+        </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -52,10 +52,10 @@
           {% for author in authors %}
           <div class="product-card mb-3">
             <div class="product-thumb">
-              <a href="#"><img src="{{ author.photo.url }}" alt="" class="img-fluid"></a>
+              <a href="{% url 'author_detail' author.slug %}"><img src="{{ author.photo.url }}" alt="" class="img-fluid"></a>
             </div>
             <div class="product-details">
-              <h4><a href="{{ author.slug.url }}">{{ author }}</a></h4>
+              <h4><a href="{% url 'author_detail' author.slug %}">{{ author }}</a></h4>
               <p>{{ author.description }}</p>
               <div class="product-bottom-details d-flex justify-content-between">
                 <div class="product-links">
