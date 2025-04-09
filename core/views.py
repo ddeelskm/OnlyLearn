@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import FormView, ListView, TemplateView, CreateView
@@ -10,15 +10,6 @@ from courses.models import Courses, Authors
 
 
 # Create your views here.
-
-
-def index(request):
-    return render(request, 'core/index.html', context={'menu': menu})
-
-
-def reviews(request, reviews_slug):
-    reviews_obj = get_object_or_404(CustomerReviews, slug=reviews_slug)
-    return render(request, '', {'reviews': reviews_obj})
 
 
 class AddReviews(DataMixins, CreateView):
@@ -47,6 +38,10 @@ class Index(TemplateView):
         context['courses'] = Courses.objects.all()[:4]
         context['authors'] = Authors.objects.all()[:4]
         return context
+
+
+def page_not_found(request, exception):
+    return HttpResponseNotFound('<h1>Страница не найдена.</h1>')
 
 
 def contacts(request):
